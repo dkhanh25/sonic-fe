@@ -1,0 +1,27 @@
+type SearchIconProps = {
+  className?: string;
+};
+
+export const SearchIcon = ({ className }: SearchIconProps) => (
+  <svg
+    viewBox='0 0 14 14'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    className={className}
+  >
+    <path
+      d='M6.33333 11.6679C9.27884 11.6679 11.6667 9.27979 11.6667 6.33394C11.6667 3.38808 9.27884 1 6.33333 1C3.38781 1 1 3.38808 1 6.33394C1 9.27979 3.38781 11.6679 6.33333 11.6679Z'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      d='M13 13.0012L10.1 10.1008'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  </svg>
+);
