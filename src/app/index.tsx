@@ -1,11 +1,14 @@
 import { FilterIcon, SearchIcon } from '@/assets/icons';
 import { Input } from '@/components/ui/input';
+import { CourseService } from '@/services/course/course.service';
+import type { CourseType } from '@/types';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BackToTopButton, CourseCard, Footer, Header } from './components';
 import './index.css';
 
 function App() {
+  const courses: CourseType[] = CourseService.getCourses();
   return (
     <div className='relative'>
       <Header />
@@ -13,7 +16,7 @@ function App() {
         <p className='mb-7 text-6xl font-medium text-white xl:text-2xl'>
           Course Catalog
         </p>
-        <p className='text-md mb-9 font-semibold text-white xl:w-2/3 xl:text-lg'>
+        <p className='text-md mb-9 font-semibold text-white xl:w-4/5 xl:text-lg'>
           We empower visionary developers with a suite of powerful tools,
           enabling them to build the essential applications of tomorrow.
         </p>
@@ -32,13 +35,18 @@ function App() {
             <p className='text-md text-white xl:text-lg'>Filter</p>
           </button>
         </div>
-        <div className='mt-4 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3'>
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
+        <div className='mt-4 grid grid-cols-1 gap-6 md:mt-6 md:grid-cols-2 xl:mt-8 xl:grid-cols-3'>
+          {courses.map((course) => (
+            <CourseCard
+              key={course.id}
+              title={course.title}
+              description={course.description}
+              image={course.image}
+              level={course.level}
+              duration={course.duration}
+              lectures={course.lectures}
+            />
+          ))}
         </div>
       </div>
       <BackToTopButton />
