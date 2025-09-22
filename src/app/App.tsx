@@ -2,12 +2,10 @@ import { FilterIcon, SearchIcon } from '@/assets/icons';
 import { Input } from '@/components/ui/input';
 import { CourseService } from '@/services/course/course.service';
 import type { CourseType } from '@/types';
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
 import { BackToTopButton, CourseCard, Footer, Header } from './components';
 import './index.css';
 
-function App() {
+const App = () => {
   const courses: CourseType[] = CourseService.getCourses();
   return (
     <div className='relative'>
@@ -53,10 +51,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+export default App;
